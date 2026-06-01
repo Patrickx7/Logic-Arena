@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGIC ARENA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<div class="wrap">
+  <div class="brand">
+    <h1>LOGIC<span class="b">·</span>ARENA</h1>
+    <p>treine lógica de programação</p>
+  </div>
+
+  <!-- START -->
+  <div class="card" id="screen-start">
+    <p class="lead">Você vai resolver desafios de <b>lógica</b>: prever a saída de um código, achar o bug, rastrear loops e recursão. A dificuldade sobe de <b>Fácil</b> até <b>Expert</b>.</p>
+    <p class="lead" style="margin-bottom:6px">Cada erro tira uma vida ❤. Acertos em sequência valem mais pontos. Escolha um modo:</p>
+
+    <div class="tier-label">Campanha</div>
+    <div class="tiers">
+      <button class="tier" style="--c:var(--purple)" data-mode="campaign">
+        <span class="dot"></span>
+        <span class="tx"><span class="n">🏆 Campanha completa</span><span class="d">Fácil → Médio → Difícil → Expert</span></span>
+      </button>
+    </div>
+
+    <div class="tier-label">Treino por nível</div>
+    <div class="tiers">
+      <button class="tier" style="--c:var(--green)" data-mode="facil"><span class="dot"></span><span class="tx"><span class="n">Fácil</span><span class="d">Variáveis, if/else, loops</span></span></button>
+      <button class="tier" style="--c:var(--blue)" data-mode="medio"><span class="dot"></span><span class="tx"><span class="n">Médio</span><span class="d">Acumuladores, arrays, while</span></span></button>
+      <button class="tier" style="--c:var(--amber)" data-mode="dificil"><span class="dot"></span><span class="tx"><span class="n">Difícil</span><span class="d">Recursão, sort, debugging</span></span></button>
+      <button class="tier" style="--c:var(--magenta)" data-mode="expert"><span class="dot"></span><span class="tx"><span class="n">Expert</span><span class="d">Closures, Big-O, edge cases</span></span></button>
+    </div>
+    <button class="play" id="btn-quick">▶ COMEÇAR CAMPANHA</button>
+  </div>
+
+  <!-- GAME -->
+  <div class="card hidden" id="screen-game">
+    <div class="hud">
+      <span class="chip tierchip" id="hud-tier" style="--c:var(--green)">FÁCIL</span>
+      <span class="chip"><span class="k">PTS</span><b id="hud-score">0</b></span>
+      <span class="chip"><span class="k">🔥</span><b id="hud-streak">0</b></span>
+      <span class="lives" id="hud-lives">❤❤❤</span>
+    </div>
+    <div class="bar"><i id="hud-bar"></i></div>
+
+    <div class="qmeta">Questão <span id="q-num">1</span>/<span id="q-tot">5</span> · <span class="tag" id="q-type">SAÍDA</span></div>
+    <pre class="code" id="q-code"></pre>
+    <div class="q" id="q-text"></div>
+    <div class="opts" id="q-opts"></div>
+
+    <div class="fb" id="fb">
+      <div class="h" id="fb-h"></div>
+      <div class="x" id="fb-x"></div>
+    </div>
+    <button class="next" id="btn-next">PRÓXIMA →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card result hidden" id="screen-end">
+    <div class="big" id="end-title">FIM DE JOGO</div>
+    <div class="sub" id="end-sub"></div>
+    <div class="stats">
+      <div class="stat"><div class="v" id="end-score">0</div><div class="l">Pontos</div></div>
+      <div class="stat"><div class="v" id="end-acc">0%</div><div class="l">Precisão</div></div>
+      <div class="stat"><div class="v" id="end-streak">0</div><div class="l">Melhor sequência</div></div>
+      <div class="stat"><div class="v" id="end-rank">—</div><div class="l">Patente</div></div>
+    </div>
+    <button class="play" id="btn-again">↻ JOGAR DE NOVO</button>
+  </div>
+
+  <div class="foot">feito p/ treinar · responda com calma e leia a explicação</div>
+</div>
+
+<script src="javascript.js"></script>
+</body>
+</html>
